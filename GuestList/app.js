@@ -6,9 +6,11 @@ new Vue({
     // into dynamic vue data.
     // -> To insert these values into our HTML, we use {{ data }} syntax
     data: {
-        eventDate: 'August 14th - 16th',
-        eventTitle: 'Summer Festival!',
-        eventDesc: "It's back! This years summer festival will be in the " +
-                   "beautiful countryside featuring our best line up ever!"
+        event: {
+            eventDate: 'August 14th - 16th',
+            eventTitle: 'Summer Festival!',
+            eventDesc: "It's back! This years summer festival will be in the " +
+                       "beautiful countryside featuring our best line up ever!"
+        }
     }
 });
