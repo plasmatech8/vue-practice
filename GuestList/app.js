@@ -15,6 +15,9 @@ new Vue({
         newNameText: 'default_value',
         guestName: [],
         formSubmitClass: '',
+        appStyles: {
+            marginTop: '25px'
+        }
     },
     methods: {
         formSubmitted: function(){
