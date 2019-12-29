@@ -51,3 +51,7 @@ Notes:
 * We have created `appStyles` variable in the Vue data object which contains the styles for the `.row` class.
 * We will remove the style for `.row` in `app.css`.
 * We add `v-bind:style="appStyles"` to all elements that require the styling for the `.row` class.
+
+**Short-hand Syntax**
+* Replace `v-bind:` with `:`
+* Replace `v-on` with `@`
