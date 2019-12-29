@@ -37,3 +37,12 @@ Notes:
 **Conditional Rending with v-if statement**
 * We will add `v-if="guestName.length > 0"` to the div surrounding the list rendering div.
 * In the div directly below the `v-if`, we will add `v-else` attribute. This attribute will render the 'No names added yet...' title if guest names exist.
+
+**Binding Variables to Attributes using v-bind directive**
+* Used to pass values into attributes/attribute-values of an element. i.e. class and id values.
+* We want to change the background colour of the form when the form is submitted - so we need to change the class attribute of the form.
+* The class name will be called `formSubmitClass` in the Vue data object and add CSS has been created for the class under the `submitted` class.
+* We will bind the `formSubmitClass` variable to the div holding our form using `v-bind:class="formSubmitClass"`.
+* We will add code to change the value of `formSubmitClass` to `submitted` when we click the submit button.
+* When we click the form submit button.
+* We can use v-bind to change the src of an image, changing styles, etc.

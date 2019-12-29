@@ -13,14 +13,16 @@ new Vue({
                        "beautiful countryside featuring our best line up ever!"
         },
         newNameText: 'default_value',
-        guestName: []
+        guestName: [],
+        formSubmitClass: '',
     },
     methods: {
         formSubmitted: function(){
             if(this.newNameText.length > 0){
                 console.log(this.newNameText)
                 this.guestName.push(this.newNameText)
-                this.newNameText = ''
+                this.newNameText = '',
+                this.formSubmitClass = 'submitted'
             }
         }
     }
