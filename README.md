@@ -30,6 +30,10 @@ Notes:
 * A new object is added to the Vue object called `methods`. This object will contains a key called `formSubmitted` and the value is a function that handles the form submission. We will make it print the name to the console, add the name to the `guestName` list, and clear the value.
 * We will add the guest list to the attendance list.
 
-**List Rendering for-loop**
+**List Rendering v-for loop**
 * Vue has made it easy to do for-loops.
 * We have added `v-for="name in guestName"` to a div element and added `{{ name }}` to the content of the div. The list will be rendered in fancy green boxes.
+
+**Conditional Rending with v-if statement**
+* We will add `v-if="guestName.length > 0"` to the div surrounding the list rendering div.
+* In the div directly below the `v-if`, we will add `v-else` attribute. This attribute will render the 'No names added yet...' title if guest names exist.
