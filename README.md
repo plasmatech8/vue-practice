@@ -66,3 +66,11 @@ Notes:
 **Using v-show**
 * Elements in `v-show` is always added to the DOM, regardless of if the condition is true or false.
 * If is a good alternative to `v-if` if you want to keep the elements inside the DOM, but you cannot use `v-else` with it.
+
+**javascript expressions**
+* We can use javascript in the `{{}}` sytax. i.e. `{{ name.toLowerCase() + ' is awesome!' }}` or `{{ math.random()/3 }}`
+* We can also add this to our `v-html` directives.
+
+**Practice: HTML5 Progress Bar**
+* Can be created using: `<progress :max="event.eventCapacity" :value="guestName.length"></progress>`.
+* `event.eventCapacity` was added to denote the event max attendance capacity.
