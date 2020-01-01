@@ -62,3 +62,7 @@ Notes:
 * We can replace `<p class="card-text">{{ event.signUpText }}</p>` with `<p class="card-text" v-html="event.signUpText"></p>`.
 * v-html will overwrite the contents of the HTML tag with HTML. Be careful when using v-html as it can cause cross-site scripting.
 * To avoid unnecessary re-rendering, we can use the `v-once` attribute (an empty attribute). This will make the HTML attribute not re-render. We cannot demonstrate this currently and we can only demonstrate this by running in a webserver.
+
+**Using v-show**
+* Elements in `v-show` is always added to the DOM, regardless of if the condition is true or false.
+* If is a good alternative to `v-if` if you want to keep the elements inside the DOM, but you cannot use `v-else` with it.
