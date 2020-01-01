@@ -55,3 +55,10 @@ Notes:
 **Short-hand Syntax**
 * Replace `v-bind:` with `:`
 * Replace `v-on` with `@`
+
+**Outputting text & HTML**
+* We can replace `<h4 class="card-title">{{ event.eventTitle }}</h4>` with `<h4 class="card-title" v-text="event.eventTitle"></h4>`.
+* v-text will overwrite the contents of the HTML tag with text. Note that {{ data }} is similar to v-text, but allows other hard-coded text to exist.
+* We can replace `<p class="card-text">{{ event.signUpText }}</p>` with `<p class="card-text" v-html="event.signUpText"></p>`.
+* v-html will overwrite the contents of the HTML tag with HTML. Be careful when using v-html as it can cause cross-site scripting.
+* To avoid unnecessary re-rendering, we can use the `v-once` attribute (an empty attribute). This will make the HTML attribute not re-render. We cannot demonstrate this currently and we can only demonstrate this by running in a webserver.
