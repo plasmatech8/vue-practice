@@ -35,5 +35,11 @@ new Vue({
         sortNames: function(){
             return this.guestName.sort()
         }
+    },
+
+    watch: {
+        guestName: function(data){
+            console.log('Watch triggered')
+        }
     }
 });

@@ -75,3 +75,8 @@ A Simple guest list web app.
 * We can create the sortNames computed property and reference it in the same way as variables in the data object (except it is computed).
 * In this case, we added `sortNames` variable and replaced ` v-for="name in guestList"` with `v-for="name in sortNames"`.
 * The value of this property is cached until a dependency (a used variable) changes.
+
+**Vue: The Watch object (events)**
+* Watches a variable and run an event function when it's value changes.
+* `computed` is often more performant due to caching
+* `watch` is often used for observing values, performing asyncronous tasks, and doing API calls.
