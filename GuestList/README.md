@@ -80,3 +80,7 @@ A Simple guest list web app.
 * Watches a variable and run an event function when it's value changes.
 * `computed` is often more performant due to caching
 * `watch` is often used for observing values, performing asyncronous tasks, and doing API calls.
+
+**Practice: On @keyup.32 (space bar)**
+* We will add `@keyup.32="keyPressed"` to our text input box to trigger the `keyPressed` method on key-up on keycode 32 (or we can use the alias `space` for this key).
+* The `keyPressed` will just log to console.

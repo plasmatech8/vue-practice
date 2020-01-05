@@ -28,18 +28,21 @@ new Vue({
                 this.newNameText = '',
                 this.formSubmitClass = 'submitted'
             }
+        },
+        keyPressed: function(){
+            console.log("keyPressed method triggered (32: space)")
         }
     },
 
     computed: {
         sortNames: function(){
-            return this.guestName.sort()
+            return this.guestName.sort()  // Will cause guestName watch to trigger
         }
     },
 
     watch: {
         guestName: function(data){
-            console.log('Watch triggered')
+            console.log('guestName watch triggered')
         }
     }
 });
