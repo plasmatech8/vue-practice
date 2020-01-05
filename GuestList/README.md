@@ -8,7 +8,7 @@ A Simple guest list web app.
 
 ## Progress:
 
-**The Data object**
+**Vue: The Data object**
 * The values of the `data` dictionary in `app.js` will populate `{{ attribute }}` in `index.html`.
 * I have made an `event` into a dictionary in `app.js` because it is better practice for when we have multiple different events.
 
@@ -17,7 +17,7 @@ A Simple guest list web app.
 * The `newNameText` variable is added to `app.js` so that we can access this value of `newNameText`.
 * If we put `{{ newNameText }}` anywhere in the HTML document, it will update in real-time when we change the value of the input box. This value can also be changed via code.
 
-**Event Handling and Methods**
+**Vue: The Methods object + Event Handling**
 * We have added an empty list called `guestName` to the `data` object.
 * We have added added the `v-on:submit='formSubmitted'` attribute to the HTML form to allow Vue to handle the form.
 * We have also added event modifier to the attribute making it `v-on:submit.preventDefault='formSubmitted'`. This removes default behaviour of refreshing the page on submit.
