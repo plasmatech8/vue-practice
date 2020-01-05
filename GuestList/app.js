@@ -1,10 +1,6 @@
 new Vue({
-    // el tells vue which HTML elements to control.
     el: '#app',
 
-    // data that is used by vue. We have deccided to transfer hard-coded values
-    // into dynamic vue data.
-    // -> To insert these values into our HTML, we use {{ data }} syntax
     data: {
         event: {
             eventDate: 'August 14th - 16th',
@@ -23,6 +19,7 @@ new Vue({
             marginTop: '25px'
         }
     },
+
     methods: {
         formSubmitted: function(){
             if(this.newNameText.length > 0 && this.guestName.length < this.event.eventCapacity){
@@ -31,6 +28,12 @@ new Vue({
                 this.newNameText = '',
                 this.formSubmitClass = 'submitted'
             }
+        }
+    },
+
+    computed: {
+        sortNames: function(){
+            return this.guestName.sort()
         }
     }
 });

@@ -8,7 +8,7 @@ A Simple guest list web app.
 
 ## Progress:
 
-**Vue: The Data object**
+**Vue: The Data object (variables)**
 * The values of the `data` dictionary in `app.js` will populate `{{ attribute }}` in `index.html`.
 * I have made an `event` into a dictionary in `app.js` because it is better practice for when we have multiple different events.
 
@@ -17,7 +17,7 @@ A Simple guest list web app.
 * The `newNameText` variable is added to `app.js` so that we can access this value of `newNameText`.
 * If we put `{{ newNameText }}` anywhere in the HTML document, it will update in real-time when we change the value of the input box. This value can also be changed via code.
 
-**Vue: The Methods object + Event Handling**
+**Vue: The Methods object + Event Handling (functions)**
 * We have added an empty list called `guestName` to the `data` object.
 * We have added added the `v-on:submit='formSubmitted'` attribute to the HTML form to allow Vue to handle the form.
 * We have also added event modifier to the attribute making it `v-on:submit.preventDefault='formSubmitted'`. This removes default behaviour of refreshing the page on submit.
@@ -68,3 +68,10 @@ A Simple guest list web app.
 **Practice: HTML5 Progress Bar**
 * Can be created using: `<progress :max="event.eventCapacity" :value="guestName.length"></progress>`.
 * `event.eventCapacity` was added to denote the event max attendance capacity.
+
+**Vue: The Computed object (properties)**
+* It is less readable and bad practice to add complex javascript expressions.
+* We can use the `computed` Vue property to write complex logic.
+* We can create the sortNames computed property and reference it in the same way as variables in the data object (except it is computed).
+* In this case, we added `sortNames` variable and replaced ` v-for="name in guestList"` with `v-for="name in sortNames"`.
+* The value of this property is cached until a dependency (a used variable) changes.
