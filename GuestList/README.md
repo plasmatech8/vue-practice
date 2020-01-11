@@ -96,3 +96,5 @@ A Simple guest list web app.
 **Using multiple Vue instances**
 * It can be much more organised to have multiple Vue instances for different parts of your application.
 * We will move the `#app` div down into the `.container` div, and then create a new `#navigation` div with it's own Vue instance.
+
+**Practice: Multiple v-for loops + creating a navigation bar**
