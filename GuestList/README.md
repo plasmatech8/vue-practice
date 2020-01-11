@@ -98,3 +98,5 @@ A Simple guest list web app.
 * We will move the `#app` div down into the `.container` div, and then create a new `#navigation` div with it's own Vue instance.
 
 **Practice: Multiple v-for loops + creating a navigation bar**
+* We will generate our navigation links using `v-for` and reading a link of objects with link name and urls.
+* Note: we cannot use `{{ navLink.url }}` syntax to add our v-for loop values. We must use `:href="navLink.url` for it to work inside an attribute.
