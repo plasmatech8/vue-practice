@@ -44,5 +44,11 @@ new Vue({
         guestName: function(data){
             console.log('guestName watch triggered')
         }
+    },
+
+    filters: {
+        formatName: function(value){
+            return value.slice(0, 1).toUpperCase() + value.slice(1).toLowerCase()
+        }
     }
 });

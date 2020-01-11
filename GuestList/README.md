@@ -84,3 +84,8 @@ A Simple guest list web app.
 **Practice: On @keyup.32 (space bar)**
 * We will add `@keyup.32="keyPressed"` to our text input box to trigger the `keyPressed` method on key-up on keycode 32 (or we can use the alias `space` for this key).
 * The `keyPressed` will just log to console.
+
+**Vue: The Filter object (value modifiers)**
+* A simple way to modify values within the `{{ attrubute }}` syntax.
+* Use `{{ attribute  | formatName}}` to modify the output and add the formatName function to the filters object. We can create multiple by using multiple | pipes.
+* Now names are changed to Capitalised case when printed to screen.
