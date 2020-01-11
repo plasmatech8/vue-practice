@@ -101,3 +101,8 @@ A Simple guest list web app.
 * We will generate our navigation links using `v-for` and reading a link of objects with link name and urls.
 * Note: we cannot use `{{ navLink.url }}` syntax to add our v-for loop values. We must use `:href="navLink.url` for it to work inside an attribute.
 * Note: The `class="nav"` div attribute makes the nav bar horizontal.
+
+**Accessing other Vue instances**
+* Vue was inspired by the MVVM design pattern.
+* We can name our vue instances `vm1` and `vm2` for Vue Model
+* We can create a button in the `#navigation` div, controlled by `vm2`, to change the `vm1.event.eventCapacity` data attribute.

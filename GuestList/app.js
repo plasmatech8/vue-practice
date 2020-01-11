@@ -1,4 +1,4 @@
-new Vue({
+var vm1 = new Vue({
     el: '#app',
 
     data: {
@@ -53,7 +53,7 @@ new Vue({
     }
 });
 
-new Vue({
+var vm2 = new Vue({
     el: '#navigation',
     data: {
         appName: 'Guest List',
@@ -63,6 +63,11 @@ new Vue({
             {name: "Guest Benefits", id: 3, url: "https://facebook.com"},
             {name: "Latest News", id: 4, url: "https://apple.com"},
         ]
+    },
+    methods: {
+        capacityChanged: function() {
+            vm1.event.eventCapacity = 15
+        }
     }
 
 })
