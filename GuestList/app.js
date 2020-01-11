@@ -52,3 +52,11 @@ new Vue({
         }
     }
 });
+
+new Vue({
+    el: '#navigation',
+    data: {
+        appName: 'Guest List'
+    }
+
+})

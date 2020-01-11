@@ -92,3 +92,7 @@ A Simple guest list web app.
 
 **More on Looping (index)**
 * We can get the index and value by using `v-for="(name, index) in sortNames"`
+
+**Using multiple Vue instances**
+* It can be much more organised to have multiple Vue instances for different parts of your application.
+* We will move the `#app` div down into the `.container` div, and then create a new `#navigation` div with it's own Vue instance.
