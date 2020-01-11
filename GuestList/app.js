@@ -67,6 +67,9 @@ var vm2 = new Vue({
     methods: {
         capacityChanged: function() {
             vm1.event.eventCapacity = 15
+        },
+        titleChanged: function() {
+            this.$refs.name.innerText = "Title Changed"
         }
     }
 

@@ -106,3 +106,8 @@ A Simple guest list web app.
 * Vue was inspired by the MVVM design pattern.
 * We can name our vue instances `vm1` and `vm2` for Vue Model
 * We can create a button in the `#navigation` div, controlled by `vm2`, to change the `vm1.event.eventCapacity` data attribute.
+
+**The ref attribute**
+* We can use the `ref="name"` attribute to store a reference to the html tag.
+* We can access the html using `this.$refs.name`
+* Refs are not reactive. It may be overwritten by future Vue renders.
