@@ -68,8 +68,8 @@
               <!-- v-if statement-->
               <div v-if="guestName.length > 0">
                 <!-- v-for statement-->
-                <div class="card-success rounded name-box" v-for="name in sortNames">
-                  {{ name | formatName }}
+                <div class="card-success rounded name-box" v-for="(name, index) in sortNames">
+                  {{ name | formatName }} ({{ index + 1 }})
                 </div>
               </div>
               <div v-else>

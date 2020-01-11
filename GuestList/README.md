@@ -89,3 +89,6 @@ A Simple guest list web app.
 * A simple way to modify values within the `{{ attrubute }}` syntax.
 * Use `{{ attribute  | formatName}}` to modify the output and add the formatName function to the filters object. We can create multiple by using multiple | pipes.
 * Now names are changed to Capitalised case when printed to screen.
+
+**More on Looping (index)**
+* We can get the index and value by using `v-for="(name, index) in sortNames"`
