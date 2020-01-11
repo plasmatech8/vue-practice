@@ -115,3 +115,16 @@ A Simple guest list web app.
 **String templates**
 * We can create a Vue instance with a `template: '<h1>My HTML</h1>'` to create a string template.
 * If we create a new Vue instance with this tempalte called `vm3`, and if we mount it to a HTML tag, i.e. `vm3.$mount('#navigation')`, it will overwrite the contents of the tag.
+
+**Lifecycle hooks**
+* We can add 8 lifecycle hooks to our Vue instance:
+    * beforeCreate
+    * created
+    * beforeMount
+    * mounted
+    * beforeUpdate
+    * updated
+    * beforeDestroyed
+    * destroyed
+* This can be examined when the webpage is loaded and when we type text into the browser.
+* We can also make buttons which call the `$destroy` function to cleanup/disconnect our Vue instance and trigger destroyed hooks.
