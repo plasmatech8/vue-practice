@@ -111,3 +111,7 @@ A Simple guest list web app.
 * We can use the `ref="name"` attribute to store a reference to the html tag.
 * We can access the html using `this.$refs.name`
 * Refs are not reactive. It may be overwritten by future Vue renders.
+
+**String templates**
+* We can create a Vue instance with a `template: '<h1>My HTML</h1>'` to create a string template.
+* If we create a new Vue instance with this tempalte called `vm3`, and if we mount it to a HTML tag, i.e. `vm3.$mount('#navigation')`, it will overwrite the contents of the tag.
