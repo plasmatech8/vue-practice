@@ -6,10 +6,29 @@ Continuing from 04, adding:
 * (potentially) Vuex
 * (potentially) Vue 2 Composition API
 
-Tutorial:
+See:
+* https://vuetifyjs.com/en/features/layouts/#usage
+
 
 Contents: 
 - [vue-app](#vue-app)
-  - [something](#something)
+  - [Vuetify](#vuetify)
+    - [Installation](#installation)
 
-## something
+## Vuetify
+
+### Installation
+
+* Create a vue app
+* Include/install vuetify
+* Include/install vue router
+````vue
+Vue.use(VueRouter)
+```
+* Include/install material icons for vuetify
+```zsh
+npm install material-design-icons-iconfont -D
+```
+```vue
+import '@mdi/font/css/materialdesignicons.css'
+```
