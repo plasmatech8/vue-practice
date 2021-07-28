@@ -64,8 +64,7 @@ export default {
         return;
       }
 
-      // Handle submit logic: focus first input box & update the list in the outside component
-      console.log("testing handleSubmit");
+      // Trigger events
       this.$refs.firstItem.focus();
       this.$emit("add:employee", this.employee);
 
