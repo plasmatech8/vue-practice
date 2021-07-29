@@ -3,7 +3,7 @@
     <!-- Header -->
     <v-app-bar app color="primary" dark clipped-left>
       <h3>Appbar Heading</h3>
-      <span class="ml-auto">Hello Person</span>
+      <span class="ml-auto">Hello, {{ this.user.name }}</span>
     </v-app-bar>
 
     <!-- Content -->
@@ -59,11 +59,14 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "Layout",
   data() {
     return {};
   },
+  computed: mapGetters(["user"]),
 };
 </script>
 
