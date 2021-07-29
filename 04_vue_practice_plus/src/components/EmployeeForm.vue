@@ -1,82 +1,79 @@
 <template>
-  <div id="employee-form">
-    <form @submit.prevent="handleSubmit">
+  <v-container>
+    <v-card id="employee-form" class="pa-2">
+      <!-- Title -->
+      <v-card-title>Add New Employee</v-card-title>
       <!-- Fields -->
-      <div>
-        <label>Employee Name</label>
-        <input
-          type="text"
-          :class="{ 'has-error': submitting && invalidName }"
-          v-model="employee.name"
-          @focus="clearStatus"
-          @keypress="clearStatus"
-          ref="firstItem"
-        />
-      </div>
-      <div>
-        <label>Employee Email</label>
-        <input
-          type="text"
-          :class="{ 'has-error': submitting && invalidEmail }"
-          v-model="employee.email"
-          @focus="clearStatus"
-          @keypress="clearStatus"
-        />
-      </div>
-
-      <!-- Success/Error Message -->
-      <p v-if="error && submitting" class="error-message">
-        ❗Please fill out all required fields
-      </p>
-      <p v-if="success" class="success-message">
-        ✅ Employee successfully added
-      </p>
-
-      <!-- Submit -->
-      <button>Add Employee</button>
-    </form>
-  </div>
+      <v-card-text>
+        <v-form @submit.prevent="handleSubmit" ref="form" class="mb-2">
+          <v-row>
+            <v-col>
+              <v-text-field
+                v-model="employee.name"
+                :rules="nameRules"
+                :counter="10"
+                label="Name"
+                required
+                ref="firstItem"
+              />
+            </v-col>
+            <v-col>
+              <v-text-field
+                v-model="employee.email"
+                :rules="emailRules"
+                label="Email"
+                required
+              />
+            </v-col>
+          </v-row>
+        </v-form>
+      </v-card-text>
+      <!-- Action buttons -->
+      <v-card-actions>
+        <v-btn @click="submit">Add</v-btn>
+        <v-btn @click="reset">Reset</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
 export default {
+  components: {},
   name: "employee-form",
   data() {
     return {
-      submitting: false,
-      error: false,
-      success: false,
-      employee: {
-        name: "",
-        email: "",
-      },
+      error: null,
+      success: null,
+      employee: { name: "", email: "" },
+      nameRules: [
+        (v) => !!v || "Name is required",
+        (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
+      ],
+      emailRules: [
+        (v) => !!v || "E-mail is required",
+        (v) => /.+@.+/.test(v) || "E-mail must be valid",
+      ],
     };
   },
   methods: {
-    handleSubmit() {
-      // Submitting
-      this.submitting = true;
-      this.clearStatus();
-
-      // Submitting + Error
-      if (this.invalidName || this.invalidEmail) {
-        this.error = true;
+    submit() {
+      // Validation
+      if (!this.validate()) {
         return;
       }
 
       // Trigger events
       this.$refs.firstItem.focus();
       this.$emit("add:employee", this.employee);
-
-      // Success
-      this.error = false;
-      this.success = true;
-      this.submitting = false;
+      this.reset();
+      this.error = true;
     },
-
-    clearStatus() {
-      this.success = false;
-      this.error = false;
+    validate() {
+      return this.$refs.form.validate();
+    },
+    reset() {
+      this.$refs.form.reset();
     },
   },
 

@@ -7,22 +7,29 @@
       @delete:employee="deleteEmployee"
       @edit:employee="editEmployee"
     />
+    <!-- Alert (can place in different components and use events if needed) -->
+    <alert-popup type="success" :open="success">{{ success }}</alert-popup>
+    <alert-popup type="error" :open="error">{{ error }}</alert-popup>
   </div>
 </template>
 
 <script>
 import EmployeeTable from "../components/EmployeeTable.vue";
 import EmployeeForm from "../components/EmployeeForm.vue";
+import AlertPopup from "../components/AlertPopup.vue";
 
 export default {
   name: "App",
   components: {
     EmployeeTable,
     EmployeeForm,
+    AlertPopup,
   },
   data() {
     return {
       employees: [],
+      error: null,
+      success: null,
     };
   },
   mounted() {
@@ -43,6 +50,7 @@ export default {
         this.employees = data;
       } catch (error) {
         console.error(error);
+        this.error = error;
       }
     },
     async addEmployee(employee) {
@@ -65,8 +73,10 @@ export default {
         // <<<
         // Add employee to list
         this.employees = [...this.employees, data];
+        this.success = "New employee added!";
       } catch (error) {
         console.error(error);
+        this.error = error;
       }
     },
     async editEmployee(id, updatedEmployee) {
@@ -88,8 +98,10 @@ export default {
         this.employees = this.employees.map((employee) =>
           employee.id === id ? data : employee
         );
+        this.success = "Employee details changed!";
       } catch (error) {
         console.error(error);
+        this.error = error;
       }
     },
     async deleteEmployee(id) {
@@ -108,21 +120,15 @@ export default {
         this.employees = this.employees.filter(
           (employee) => employee.id !== id
         );
+        this.success = "Employee deleted!";
       } catch (error) {
         console.error(error);
+        this.error = error;
       }
     },
   },
 };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style >
 </style>
