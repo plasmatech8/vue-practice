@@ -4,6 +4,17 @@
   </v-app>
 </template>
 
+<script>
+import { mapActions } from "vuex";
+
+export default {
+  methods: mapActions(["fetchUser"]),
+  created() {
+    this.fetchUser();
+  },
+};
+</script>
+
 <style lang="postcss" scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
