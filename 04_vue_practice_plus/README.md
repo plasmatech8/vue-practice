@@ -3,8 +3,8 @@
 Continuing from 04, adding:
 * Vuetify
 * Vue Router
-* (potentially) Vuex
-* (potentially) Vue 2 Composition API
+* (next) Vuex
+* (next) Vue 2 Composition API
 
 See:
 * https://vuetifyjs.com/en/features/layouts/#usage
@@ -15,6 +15,7 @@ Contents:
   - [Vuetify](#vuetify)
     - [Installation](#installation)
     - [Details](#details)
+  - [Vue Router](#vue-router)
   - [v-model](#v-model)
 
 ## Vuetify
@@ -58,6 +59,24 @@ import '@mdi/font/css/materialdesignicons.css'
 * v-navigation-drawer
 * v-list
 * v-list-item...
+
+## Vue Router
+
+A routes object is created in `router.js`. 
+
+If a layout is used, a route needs child routes.
+
+It is better to use history mode (rather than hash-based-routing #)
+
+```vue
+Vue.use(VueRouter)
+
+new Vue({
+  vuetify,
+  render: h => h(App),
+  router,
+}).$mount('#app')
+```
 
 ## v-model
 
