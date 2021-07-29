@@ -8,8 +8,8 @@
       @edit:employee="editEmployee"
     />
     <!-- Alert (can place in different components and use events if needed) -->
-    <alert-popup type="success" :open="success">{{ success }}</alert-popup>
-    <alert-popup type="error" :open="error">{{ error }}</alert-popup>
+    <alert-popup type="success" v-model="success">{{ success }}</alert-popup>
+    <alert-popup type="error" v-model="error">{{ error }}</alert-popup>
   </div>
 </template>
 

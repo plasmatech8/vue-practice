@@ -15,6 +15,7 @@ Contents:
   - [Vuetify](#vuetify)
     - [Installation](#installation)
     - [Details](#details)
+  - [v-model](#v-model)
 
 ## Vuetify
 
@@ -58,3 +59,46 @@ import '@mdi/font/css/materialdesignicons.css'
 * v-list
 * v-list-item...
 
+## v-model
+
+v-model is for 2-way bindings.
+
+```vue
+<input v-model="something">
+```
+is essentially the same as:
+```vue
+<input
+   v-bind:value="something"
+   v-on:input="something = $event.target.value"
+>
+```
+or (shorthand syntax):
+```vue
+<input
+   :value="something"
+   @input="something = $event.target.value"
+>
+```
+
+We create a prop in our component called `value`.
+
+Then we call an event in our component:  `this.$emit('input', 'some_value');`
+
+We need to use computed values if we want to forward a v-model to child:
+```vue
+<v-snackbar v-model="inputVal" :color="type" dismissible>
+
+// ...
+computed: {
+    // Use input value so we can pass v-model into v-model of child
+    inputVal: {
+      get() {
+        return !!this.value;
+      },
+      set(val) {
+        this.$emit("input", val);
+      },
+    },
+  },
+```

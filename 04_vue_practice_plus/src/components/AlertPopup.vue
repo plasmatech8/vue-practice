@@ -1,5 +1,5 @@
 <template>
-  <v-snackbar v-model="open" :color="type" dismissible>
+  <v-snackbar v-model="inputVal" :color="type" dismissible>
     <v-layout align-center pr-4>
       <v-icon class="pr-3" dark large>{{ types[type] }}</v-icon>
       <v-layout column>
@@ -8,7 +8,7 @@
     </v-layout>
 
     <template v-slot:action>
-      <v-btn color="white" text @click="open = false"> Close </v-btn>
+      <v-btn color="white" text @click="close"> Close </v-btn>
     </template>
   </v-snackbar>
 </template>
@@ -16,7 +16,7 @@
 <script>
 export default {
   name: "alert-popup",
-  props: { type: String, open: Boolean },
+  props: { type: String, value: null },
   data() {
     return {
       types: {
@@ -25,6 +25,22 @@ export default {
         info: "info",
       },
     };
+  },
+  methods: {
+    close() {
+      this.$emit("input", false);
+    },
+  },
+  computed: {
+    // Use input value so we can pass v-model into v-model of child
+    inputVal: {
+      get() {
+        return !!this.value;
+      },
+      set(val) {
+        this.$emit("input", val);
+      },
+    },
   },
 };
 </script>
