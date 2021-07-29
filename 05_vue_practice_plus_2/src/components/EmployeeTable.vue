@@ -112,8 +112,8 @@ export default {
     },
     saveEdit(employee) {
       if (
-        this.nameRules.some((func) => func(employee.name)) ||
-        this.emailRules.some((func) => func(employee.email))
+        this.nameRules.some((func) => func(employee.name) !== true) ||
+        this.emailRules.some((func) => func(employee.email) !== true)
       ) {
         return console.info("Validation Error for employee edit");
       }
