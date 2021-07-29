@@ -1,6 +1,6 @@
 <template>
   <v-app class="ma-0">
-    <!-- Header -->
+    <!-- Appbar -->
     <v-app-bar app color="primary" dark clipped-left>
       <h3>Appbar Heading</h3>
       <span class="ml-auto">Hello, {{ this.user.name }}</span>

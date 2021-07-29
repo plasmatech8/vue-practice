@@ -7,6 +7,10 @@ Continuing from 04, adding:
 We will create a settings page with user details stored in the
 Vuex global store.
 
+This global store will be used in:
+* Settings Page (UserDetailsPanel)
+* Appbar layout (GeneralLayout)
+
 ## vuex
 
 We need:
