@@ -20,11 +20,12 @@
               <td v-if="editing === employee.id">
                 <v-text-field
                   dense
-                  type="text"
                   v-model="cachedEmployee.name"
-                  :error-messages="nameFieldError"
                   hint="Name"
                   persistent-hint
+                  :error-messages="nameFieldError"
+                  :rules="nameRules"
+                  required
                 />
               </td>
               <td v-else>{{ employee.name }}</td>
@@ -33,11 +34,12 @@
               <td v-if="editing === employee.id">
                 <v-text-field
                   dense
-                  type="text"
-                  v-model="cachedEmployee.email"
-                  :error-messages="emailFieldError"
                   hint="Email"
                   persistent-hint
+                  v-model="cachedEmployee.email"
+                  :error-messages="emailFieldError"
+                  :rules="emailRules"
+                  required
                 />
               </td>
               <td v-else>{{ employee.email }}</td>
@@ -87,12 +89,16 @@ export default {
     return {
       editing: null, // The employee ID we are editing
       cachedEmployee: null, // The employee object we are editing
-      /* errors: {
-        nameField: null,
-        emailField: null,
-      }, */
       nameFieldError: null,
       emailFieldError: null,
+      nameRules: [
+        (v) => !!v || "Name is required",
+        (v) => (v && v.length <= 50) || "Name must be less than 50 characters",
+      ],
+      emailRules: [
+        (v) => !!v || "E-mail is required",
+        (v) => /.+@.+/.test(v) || "E-mail must be valid",
+      ],
     };
   },
   props: {
@@ -105,18 +111,12 @@ export default {
       this.errors = {};
     },
     saveEdit(employee) {
-      let hasError = false;
-      this.nameFieldError = "";
-      this.emailFieldError = "";
-      if (employee.name === "") {
-        this.nameFieldError = "Invalid Name";
-        hasError = true;
+      if (
+        this.nameRules.some((func) => func(employee.name)) ||
+        this.emailRules.some((func) => func(employee.email))
+      ) {
+        return console.info("Validation Error for employee edit");
       }
-      if (employee.email === "") {
-        this.emailFieldError = "Invalid Email";
-        hasError = true;
-      }
-      if (hasError) return;
       this.$emit("edit:employee", employee.id, employee);
       this.cancelEdit();
     },
