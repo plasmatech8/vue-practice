@@ -11,6 +11,11 @@ This global store will be used in:
 * Settings Page (UserDetailsPanel)
 * Appbar layout (GeneralLayout)
 
+We will use the (Vue 2) Compose API in components:
+* TodosPage
+* TodoForm
+* TodoTable
+
 ## vuex
 
 We need:
