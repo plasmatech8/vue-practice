@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions, mapMutations } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   data() {
@@ -69,8 +69,8 @@ export default {
     editMode() {
       this.editing = true;
     },
-    saveEdit() {
-      this.setUser(this.cachedUser);
+    async saveEdit() {
+      this.$emit("update:user", this.cachedUser);
       this.cancelEdit();
     },
     cancelEdit() {
@@ -78,7 +78,6 @@ export default {
       this.cachedUser = Object.assign({}, this.user); // clone object
     },
     ...mapActions(["fetchUser"]),
-    ...mapMutations(["setUser"]),
   },
   computed: {
     ...mapGetters(["user"]),
@@ -89,6 +88,13 @@ export default {
     setTimeout(() => {
       this.cancelEdit();
     }, 500);
+  },
+  watch: {
+    user(newUser) {
+      if (!this.editing) {
+        this.cachedUser = Object.assign({}, newUser);
+      }
+    },
   },
 };
 </script>

@@ -52,3 +52,12 @@ Logic chain between child components and stores:
     * But then again, these components can be considered controlled by the parent
   * I think 
     * It is best to keep as much intuitive logic tied to the component logic as possible (i.e. UserDetails == User store and does not rely on props)
+
+## Watchers & Computed
+
+Computed - is most used for cached derived data.
+
+Watchers - is sometimes used when state needs to change based on a change in data or computed properties.
+
+In UserDetailsPanel, I added a watcher so that when the user store changes,
+and the details are not in edit mode, it will update the cached user details.
