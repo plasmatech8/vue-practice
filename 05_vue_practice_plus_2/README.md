@@ -16,6 +16,10 @@ We will use the (Vue 2) Compose API in components:
 * TodoForm
 * TodoTable
 
+Resources:
+* [Vue 3 Composition API Introduction [FULL TUTORIAL]](https://www.youtube.com/watch?v=bwItFdPt-6M) by Academind on YouTube
+* [Vuex Crash Course | State Management](https://www.youtube.com/watch?v=5lVQgZzLMHc) by Traversy Media on YouTube
+
 ## vuex
 
 We need:
@@ -76,7 +80,7 @@ When building bigger Vue apps:
 
 * Reusing logic across components might be cumbersome 
 
-So we have the option to use the composition API.
+So we have the option to use the composition API. This is kinda like React function components + hooks.
 
 ```vue
 {
