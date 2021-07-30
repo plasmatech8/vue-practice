@@ -52,6 +52,7 @@ Logic chain between child components and stores:
     * But then again, these components can be considered controlled by the parent
   * I think 
     * It is best to keep as much intuitive logic tied to the component logic as possible (i.e. UserDetails == User store and does not rely on props)
+  * Actually idk. Do it the same way as in this project.
 
 ## Watchers & Computed
 
