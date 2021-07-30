@@ -62,3 +62,31 @@ Watchers - is sometimes used when state needs to change based on a change in dat
 
 In UserDetailsPanel, I added a watcher so that when the user store changes,
 and the details are not in edit mode, it will update the cached user details.
+
+## Compose API
+
+When building bigger Vue apps:
+* Code that belongs together logically might get split up across multiple options (in the options API).
+  * We might need to do a lot of scrolling
+
+* Reusing logic across components might be cumbersome 
+
+So we have the option to use the composition API.
+
+```vue
+{
+  data(){
+    return { name: 'Max' }
+  },
+  methods: { doSmth() { ... } }
+}
+// >>>
+{
+  setup() {
+    const name = ref('Max');
+    function doSmth() { ... }
+    return { name, doSmth }
+  }
+}
+```
+
