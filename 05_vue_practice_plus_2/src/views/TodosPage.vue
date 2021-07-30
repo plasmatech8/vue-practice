@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { ref, onMounted } from "@vue/composition-api";
+
 import TodoTable from "../components/TodoTable.vue";
 import TodoForm from "../components/TodoForm.vue";
 import AlertPopup from "../components/AlertPopup.vue";
@@ -21,18 +23,12 @@ export default {
     TodoForm,
     AlertPopup,
   },
-  data() {
-    return {
-      todos: [],
-      error: null,
-      success: null,
-    };
-  },
-  mounted() {
-    this.getTodos();
-  },
-  methods: {
-    async getTodos() {
+  setup() {
+    const todos = ref([]);
+    const success = ref(null);
+    const error = ref(null);
+
+    async function getTodos() {
       try {
         // GET
         const response = await fetch(
@@ -43,13 +39,13 @@ export default {
         }
         const data = await response.json();
         // Initialise list of todos
-        this.todos = data;
-      } catch (error) {
-        console.error(error);
-        this.error = error;
+        todos.value = data;
+      } catch (e) {
+        console.error(e);
+        error.value = e;
       }
-    },
-    async addTodo(todo) {
+    }
+    async function addTodo(todo) {
       try {
         // POST
         const response = await fetch(
@@ -65,17 +61,17 @@ export default {
         }
         const data = await response.json();
         // >>> (increment the ID because the API endpoint does not actually update the database)
-        data.id = this.todos.length + 1;
+        data.id = todos.value.length + 1;
         // <<<
         // Add todos to list
-        this.todos = [...this.todos, data];
-        this.success = "New todo added!";
-      } catch (error) {
-        console.error(error);
-        this.error = error;
+        todos.value = [...todos.value, data];
+        success.value = "New todo added!";
+      } catch (e) {
+        console.error(e);
+        error.value = e;
       }
-    },
-    async deleteTodo(id) {
+    }
+    async function deleteTodo(id) {
       try {
         // DELETE
         const response = await fetch(
@@ -88,13 +84,25 @@ export default {
           throw new Error(`Todos endpoint issue (${response.status})`);
         }
         // Remove todo from the list
-        this.todos = this.todos.filter((todo) => todo.id !== id);
-        this.success = "Todo deleted!";
+        todos.value = todos.value.filter((todo) => todo.id !== id);
+        success.value = "Todo deleted!";
       } catch (error) {
         console.error(error);
-        this.error = error;
+        error.value = error;
       }
-    },
+    }
+
+    onMounted(() => {
+      getTodos();
+    });
+
+    return {
+      todos,
+      error,
+      success,
+      deleteTodo,
+      addTodo,
+    };
   },
 };
 </script>

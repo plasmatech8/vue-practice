@@ -38,13 +38,12 @@
 <script>
 export default {
   name: "todo-table",
-  data() {
-    return {};
-  },
   props: {
     todos: Array,
   },
-  methods: {},
+  setup() {
+    return {};
+  },
 };
 </script>
 

@@ -90,3 +90,24 @@ So we have the option to use the composition API.
 }
 ```
 
+### Getting Started
+
+Use `import { ref, onMounted } from "@vue/composition-api";` forr Vue 2. And do `Vue.use(VueCompositionAPI)`.
+
+Everything available in the return statement is exposed to the component.
+
+Props are provided to the component by default.
+
+In the setup method, the first argument is `props`, the second argument is `context`.
+
+### Reactive Variables & Functions
+
+The `ref` function is most often used for reactive variables.
+
+The `computed(func)` function can be used to create computed properties.
+
+The `watch(dep, func)` function can be used to update based on watched value.
+
+Use `onMounted(func)` to perform actions, on-mount.
+
+Use `context.emit(event, ... )` to emit an event.

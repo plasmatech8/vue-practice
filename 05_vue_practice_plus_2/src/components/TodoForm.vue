@@ -25,31 +25,44 @@
 </template>
 
 <script>
+import { ref, onMounted } from "@vue/composition-api";
+
 export default {
   components: {},
   name: "todo-form",
-  data() {
-    return { todo: {} };
-  },
-  methods: {
-    submit() {
+
+  setup(_, context) {
+    const todo = ref({ title: "" });
+    const form = ref(null);
+    const firstItem = ref(null);
+
+    function submit() {
       // Validation
       if (!this.validate()) {
         return;
       }
-
       // Trigger events
-      this.$refs.firstItem.focus();
-      this.$emit("add:todo", this.todo);
-      this.reset();
-      this.error = true;
-    },
-    validate() {
-      return this.$refs.form.validate();
-    },
-    reset() {
-      this.$refs.form.reset();
-    },
+      firstItem.value.focus();
+      context.emit("add:todo", todo.value);
+      reset();
+    }
+    function validate() {
+      return form.value.validate();
+    }
+    function reset() {
+      form.value.reset();
+    }
+
+    onMounted(() => {});
+
+    return {
+      todo,
+      firstItem,
+      form,
+      submit,
+      validate,
+      reset,
+    };
   },
 };
 </script>
