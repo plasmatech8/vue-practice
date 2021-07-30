@@ -20,6 +20,13 @@
         </v-list-item>
       </router-link>
 
+      <router-link to="/todos" class="navLink">
+        <v-list-item link>
+          <v-list-item-icon><v-icon>rule</v-icon></v-list-item-icon>
+          <v-list-item-title> Todos </v-list-item-title>
+        </v-list-item>
+      </router-link>
+
       <router-link to="/settings" class="navLink">
         <v-list-item link>
           <v-list-item-icon><v-icon>settings</v-icon></v-list-item-icon>
